@@ -17,4 +17,13 @@ resource "azurerm_key_vault" "main" {
       "Get", "Set", "List", "Delete", "Recover"
     ]
   }
+
+  network_acls {
+    default_action = "Deny"
+    bypass         = "AzureServices"
+
+    ip_rules = [
+      "168.199.86.148/32"
+    ]
+  }
 }
