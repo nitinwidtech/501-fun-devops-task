@@ -1,0 +1,8 @@
+location             = "UK South"
+resource_group_name  = "rg-501fun-prod"
+vnet_name            = "vnet-501fun-prod"
+aks_cluster_name     = "aks-501fun-prod"
+acr_name             = "acr501funprod"
+keyvault_name        = "kv-501fun-prod"
+storage_account_name = "st501funprod"
+log_analytics_name   = "log-501fun-prod"
