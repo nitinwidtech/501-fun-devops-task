@@ -100,6 +100,7 @@ The architecture supports:
 │   └── architecture-diagram.png
 │
 └── README.md
+```
 
 ## Security Design
 
@@ -245,6 +246,7 @@ The architecture supports:
 terraform init
 terraform plan -var-file="terraform.tfvars"
 terraform apply -var-file="terraform.tfvars"
+```
 
 ### GitHub Actions
 - Configure Azure credentials
