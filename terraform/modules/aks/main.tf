@@ -32,13 +32,15 @@ resource "azurerm_kubernetes_cluster" "main" {
     # docker_bridge_cidr = "172.17.0.1/16"
   }
 
-  api_server_access_profile {
-    authorized_ip_ranges = [
-      "168.199.86.148/32"
-    ]
-  }
+  # api_server_access_profile {
+  #   authorized_ip_ranges = [
+  #     "168.199.86.148/32"
+  #   ]
+  # }
 
   role_based_access_control_enabled = true
+  private_cluster_enabled           = true
+  azure_policy_enabled              = true
   oidc_issuer_enabled               = true
   workload_identity_enabled         = true
 }
