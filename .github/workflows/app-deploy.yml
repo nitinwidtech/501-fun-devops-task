@@ -8,6 +8,8 @@ on:
       - 'app/**'
       - 'docker/**'
 
+  workflow_dispatch:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -40,11 +42,15 @@ jobs:
 
       - name: Get AKS Credentials
         run: |
-          az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER --overwrite-existing
+          az aks get-credentials \
+            --resource-group $RESOURCE_GROUP \
+            --name $AKS_CLUSTER \
+            --overwrite-existing
 
       - name: Deploy to AKS
         run: |
-          kubectl set image deployment/backend-api backend-api=$ACR_NAME.azurecr.io/backend-api:${{ github.sha }}
+          kubectl set image deployment/backend-api \
+            backend-api=$ACR_NAME.azurecr.io/backend-api:${{ github.sha }}
 
       - name: Update Container App
         run: |
